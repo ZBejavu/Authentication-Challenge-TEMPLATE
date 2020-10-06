@@ -1,0 +1,34 @@
+POST http://localhost:8080/users/register 
+content-type: application/json
+
+{
+    "name": "sample",
+    "password": "asdf123",
+    "email": "zach@gmail.com"
+}
+
+###
+
+GET http://localhost:8080/users/
+
+###
+
+OPTIONS  http://localhost:8080/
+
+###
+
+GET http://localhost:8080/api/v1/information
+
+###
+GET http://localhost:8080/allRoutes
+
+###
+
+POST http://localhost:8080/users/login 
+content-type: application/json
+
+{
+    "name": "sample",
+    "password": "asdf123",
+    "email": "zach@gmail.com"
+}

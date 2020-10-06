@@ -28,7 +28,7 @@ describe('Options method test', () => {
 
         const adminOptionsRes = await request(server)
             .options('/')
-            .set('authorization', `Bearer ${data.body.accessToken}`)
+            .set('authorization', `bearer ${data.body.accessToken}`)
 
         expect(adminOptionsRes.status).toBe(200)
         expect(adminOptionsRes.body.length >= 7).toBe(true)
@@ -47,7 +47,7 @@ describe('Options method test', () => {
     test('Client with invalid token can view only Register, login and refresh token APIs', async (done) => {
         const invalidTokenOptionsRes = await request(server)
             .options('/')
-            .set('authorization', `Bearer invalidtoken`)
+            .set('authorization', `bearer invalidtoken`)
 
         expect(invalidTokenOptionsRes.status).toBe(200)
         expect(invalidTokenOptionsRes.body.length >= 3).toBe(true)
@@ -69,7 +69,7 @@ describe('Options method test', () => {
 
         const nonAdminOptionsRes = await request(server)
             .options('/')
-            .set('authorization', `Bearer ${loginRes.body.accessToken}`)
+            .set('authorization', `bearer ${loginRes.body.accessToken}`)
 
         expect(nonAdminOptionsRes.status).toBe(200)
         expect(nonAdminOptionsRes.body.length >= 6).toBe(true)

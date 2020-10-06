@@ -38,7 +38,7 @@ describe('Admin Tests', () => {
 
         const getAllUsersRes = await request(server)
             .get('/api/v1/users')
-            .set('authorization', `Bearer ${adminLoginRes.body.accessToken}`)
+            .set('authorization', `bearer ${adminLoginRes.body.accessToken}`)
 
         expect(getAllUsersRes.status).toBe(200)
         expect(getAllUsersRes.body[0].email).toBe(userAdminMock.email)
@@ -46,7 +46,7 @@ describe('Admin Tests', () => {
 
         const getAllUsersNoAdminRes = await request(server)
             .get('/api/v1/users')
-            .set('authorization', `Bearer token`)
+            .set('authorization', `bearer token`)
 
         expect(getAllUsersNoAdminRes.status).toBe(403)
         expect(getAllUsersNoAdminRes.body.length > 0).toBe(false)
